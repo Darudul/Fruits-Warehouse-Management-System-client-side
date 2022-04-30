@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 const Inventory = () => {
   const { inventoryId } = useParams();
   const [fruit, setFruit] = useState({});
+  const navigate = useNavigate();
+  const ManageInventory = () => {
+    navigate('/manage');
+  };
 
   useEffect(() => {
     const url = `http://localhost:5000/fruit/${inventoryId}`;
@@ -60,21 +64,23 @@ const Inventory = () => {
     }
   };
   return (
-    <div className="container">
-      <div className="mb-5">
+    <div>
+      <div className="mb-5 container">
         <h3>this is inventory:{inventoryId}</h3>
         <p>{fruit.name}</p>
         <p>quantity: {fruit?.quantity} </p>
         <button onClick={deliveredFruit}>Delivered</button>
       </div>
-
-      <>
-        <form onSubmit={handleUpdateUser}>
-          <input type="text" name="items" placeholder="Name" required />
-          <br />
-          <input type="submit" value="Update User" />
-        </form>
-      </>
+      <div>
+        <>
+          <form className="container" onSubmit={handleUpdateUser}>
+            <input type="text" name="items" placeholder="Name" required />
+            <br />
+            <input type="submit" value="Update User" />
+          </form>
+        </>
+      </div>
+      <button onClick={ManageInventory} className="mt-5 ms-5">Manage Inventories</button>
     </div>
   );
 };

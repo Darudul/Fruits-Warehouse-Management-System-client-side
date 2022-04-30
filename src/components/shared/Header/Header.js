@@ -20,8 +20,8 @@ const Header = () => {
               <Nav.Link className="text-dark h5" eventKey={2} href="#memes">
                 About us
               </Nav.Link>
-              <Nav.Link className="text-dark h5" href="#features">
-                Blogs
+              <Nav.Link className="text-dark h5" as={Link} to="/manage">
+                Manage Inventories
               </Nav.Link>
               <Nav.Link className="text-dark h5" href="#pricing">
                 Contact us

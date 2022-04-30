@@ -9,7 +9,7 @@ const Product = ({ product }) => {
   };
   return (
     <div className="col-lg-4 mb-5">
-      <div className="card ">
+      <div className="card">
         {/* <img
           src={product.picture}
           className="card-img-top"
