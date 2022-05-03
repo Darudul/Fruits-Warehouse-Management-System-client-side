@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
+import "./Inventory.css";
 
 const Inventory = () => {
   const { inventoryId } = useParams();
   const [fruit, setFruit] = useState({});
   const navigate = useNavigate();
   const ManageInventory = () => {
-    navigate('/manage');
+    navigate("/manage");
   };
 
   useEffect(() => {
@@ -64,23 +65,62 @@ const Inventory = () => {
     }
   };
   return (
-    <div>
-      <div className="mb-5 container">
-        <h3>this is inventory:{inventoryId}</h3>
-        <p>{fruit.name}</p>
-        <p>quantity: {fruit?.quantity} </p>
-        <button onClick={deliveredFruit}>Delivered</button>
+    <div className="position-relative">
+      <div className="mb-5 container inventory-item">
+        <div>
+          <img className="" width="400px" src={fruit.img} alt="" />
+        </div>
+
+        <div>
+          <p><span className="h5">Name:</span> {fruit.itemname}</p>
+          <p className="card-text">{fruit.description}</p>
+          <p>
+            {" "}
+            <span className="h5">Price:</span>
+            {fruit.price}
+          </p>
+          <p>
+            {" "}
+            <span className="h5">Quantity:</span> {fruit.quantity}
+          </p>
+          <p>
+            <span className="h6">Suplier Name:</span> {fruit.name}
+          </p>
+          <p>
+            <span className="h6">Sold:</span> {fruit.sold}
+          </p>
+          <button
+            onClick={deliveredFruit}
+            className="border-0 bg-warning p-2 rounded-pill text-success px-3 fw-bold"
+          >
+            Delivered
+          </button>
+        </div>
       </div>
       <div>
         <>
-          <form className="container" onSubmit={handleUpdateUser}>
-            <input type="text" name="items" placeholder="Name" required />
+          <form
+            className="ms-4 w-25 mt-5 style-form"
+            onSubmit={handleUpdateUser}
+          >
+            <input
+              className="w-50 border border-secondary rounded"
+              type="text"
+              name="items"
+              placeholder="Name"
+              required
+            />
             <br />
-            <input type="submit" value="Update User" />
+            <input className="w-50 border-0 bg-secondary text-white p-2 rounded" type="submit" value="Update User" />
           </form>
         </>
       </div>
-      <button onClick={ManageInventory} className="mt-5 ms-5">Manage Inventories</button>
+      <button
+        onClick={ManageInventory}
+        className="mt-5 ms-5 border-0 bg-success p-2 rounded-pill text-white px-3 fw-bold position-absolute bottom-0 end-0 me-4"
+      >
+        Manage Inventories
+      </button>
     </div>
   );
 };
