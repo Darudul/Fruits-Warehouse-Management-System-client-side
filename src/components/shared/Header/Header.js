@@ -28,7 +28,12 @@ const Header = () => {
               </Nav.Link>
             </Nav>
             <Nav>
-              <Nav.Link className="text-dark h5" eventKey={2} href="#memes">
+              <Nav.Link
+                className="text-dark h5"
+                eventKey={2}
+                as={Link}
+                to="/login"
+              >
                 Login
               </Nav.Link>
             </Nav>

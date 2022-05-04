@@ -31,13 +31,13 @@ const ProductQuality = () => {
       </div>
       <div className="text-center">
         <img src="" alt="" />
-        <h4>Quality Products</h4>
+        <h4>Online Order</h4>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed totam
           labore exercitationem cumque corporis maiores.
         </p>
         <img src="" alt="" />
-        <h4>Fast Delivery</h4>
+        <h4>24/7 Service</h4>
         <p>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sed totam
           labore exercitationem cumque corporis maiores.

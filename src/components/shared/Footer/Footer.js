@@ -1,5 +1,7 @@
 import React from "react";
 import "./Footer.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Footer = () => {
   return (
     <div className=" mt-5">
@@ -14,6 +16,9 @@ const Footer = () => {
           <p className="text-white-50">darudulislam@gmail.com</p>
           <h6 className="text-white-50">Phone:</h6>
           <p className="text-white-50">+603-22960416</p>
+          <p className="copyright text-white-50">
+            Copyright 2022, Groxi Store. All Rights Reserved.
+          </p>
         </div>
         <div className="footer-margin">
           <h4 className="text-white">Useful Links</h4>
@@ -35,15 +40,7 @@ const Footer = () => {
           <p className="text-white-50">1200-14.45</p>
           <h6 className="text-white-50">Sunday</h6>
           <p className="text-white-50">15.00</p>
-        </div>
-        <div>
-          <p>Copyright 2022, Groxi Store. All Rights Reserved.</p>
-          <div>
-            <p>
-              Follow Us:
-              <p></p>
-            </p>
-          </div>
+          <p className="copyrigh text-white-50">Follow Us:</p>
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import Inventory from "./components/Inventory/Inventory";
 import ManageInventories from "./components/ManageInventories/ManageInventories";
 import Header from "./components/shared/Header/Header";
 import Footer from "./components/shared/Footer/Footer";
+import Login from "./socialmedia/Login/Login";
+import Signup from "./socialmedia/Signup/Signup";
 
 function App() {
   return (
@@ -25,6 +27,14 @@ function App() {
         <Route
           path="/manage/:manageId"
           element={<ManageInventories></ManageInventories>}
+        ></Route>
+        <Route
+          path="/login"
+          element={<Login></Login>}
+        ></Route>
+        <Route
+          path="/signup"
+          element={<Signup></Signup>}
         ></Route>
       </Routes>
       <Footer></Footer>
