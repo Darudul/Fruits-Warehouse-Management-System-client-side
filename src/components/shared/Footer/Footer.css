@@ -1,0 +1,13 @@
+.background {
+  background-color: #0b5329;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.footer-margin {
+  margin: 60px 0px;
+  margin-left: 50px;
+}
+.footer{
+  margin-left: 0;
+  margin-right: 0;
+}
