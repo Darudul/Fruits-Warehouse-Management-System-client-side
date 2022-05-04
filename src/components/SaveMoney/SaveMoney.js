@@ -33,7 +33,9 @@ const SaveMoney = () => {
             <img
               width="300px"
               height="250"
-              src={"https://i.ibb.co/Sr16W7k/colorful-fruit.jpg"}
+              src={
+                "https://i.ibb.co/SRNk2xY/fresh-fruits-isolated-white-background.jpg"
+              }
               alt=""
             />
           </div>

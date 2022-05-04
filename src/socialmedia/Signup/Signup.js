@@ -1,19 +1,53 @@
 import Button from "@restart/ui/esm/Button";
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
+import {
+  useAuthState,
+  useCreateUserWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import SocialLogin from "../SocialLogin/SocialLogin";
+import { Link } from "react-router-dom";
+import { signOut } from "@firebase/auth";
+import Loading from "../Loading/Loading";
 
 const Signup = () => {
+  const [errorPassword, setErrorPassword] = useState("");
   const navigate = useNavigate();
   const navigateToLogin = () => {
     navigate("/login");
   };
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const [user1, loading1, error1] = useAuthState(auth);
+  const logout = () => {
+    signOut(auth);
+  };
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  if (user) {
+    navigate("/home");
+  }
   const hangdleSignup = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    const confirmPassword = event.target.confirmPassword.value;
+    const confirm = event.target.passwords.value;
+
+    if (password !== confirm) {
+      setErrorPassword("Two password didnt match");
+      return;
+    }
+    if (password.length < 6) {
+      setErrorPassword("password must be 6 character or more");
+      return;
+    }
+    createUserWithEmailAndPassword(email, password);
   };
+
   return (
     <div>
       <h3 className="text-center mt-5 text-warning">Please signup</h3>
@@ -24,6 +58,7 @@ const Signup = () => {
             name="email"
             type="email"
             placeholder="Enter your email"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -32,30 +67,45 @@ const Signup = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicConfirmPassword">
+        <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label className="text-success h5">
             Confirm Password:{" "}
           </Form.Label>
           <Form.Control
-            name="confirmPassword"
+            name="passwords"
             type="password"
             placeholder="Confirm Password"
+            required
           />
         </Form.Group>
+        <p className="text-danger h6">{errorPassword}</p>
         <button onClick={navigateToLogin} className="bg-white border-0 mb-3">
-          If user is signup alreay?{" "}
+          If user is signup alreay?
           <span className="text-warning ">Please Login!!</span>
         </button>{" "}
         <br />
-        <Button
-          className="bg-success text-white border-0 rounded-pill px-4 h6 py-2"
-          type="submit"
-        >
-          Signup
-        </Button>
+        {user ? (
+          <button
+            className="bg-warning  fw-bold border-0 rounded-pill px-3"
+            onClick={logout}
+          >
+            Sign out
+          </button>
+        ) : (
+          <button
+            className="bg-success text-white  fw-bold border-0 rounded-pill px-4 py-2"
+            eventKey={2}
+            as={Link}
+            to="/home"
+          >
+            signup
+          </button>
+        )}
       </Form>
+      <SocialLogin></SocialLogin>
     </div>
   );
 };

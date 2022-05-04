@@ -7,6 +7,7 @@ import Header from "./components/shared/Header/Header";
 import Footer from "./components/shared/Footer/Footer";
 import Login from "./socialmedia/Login/Login";
 import Signup from "./socialmedia/Signup/Signup";
+import RequireAuth from "./socialmedia/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -15,10 +16,15 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
+        <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/inventory" element={<Inventory></Inventory>}></Route>
         <Route
           path="/inventory/:inventoryId"
-          element={<Inventory></Inventory>}
+          element={
+            <RequireAuth>
+              <Inventory></Inventory>
+            </RequireAuth>
+          }
         ></Route>
         <Route
           path="/manage"
@@ -28,14 +34,8 @@ function App() {
           path="/manage/:manageId"
           element={<ManageInventories></ManageInventories>}
         ></Route>
-        <Route
-          path="/login"
-          element={<Login></Login>}
-        ></Route>
-        <Route
-          path="/signup"
-          element={<Signup></Signup>}
-        ></Route>
+        <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/signup" element={<Signup></Signup>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

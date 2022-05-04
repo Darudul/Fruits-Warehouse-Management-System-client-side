@@ -72,22 +72,22 @@ const Inventory = () => {
         </div>
 
         <div>
-          <p><span className="h5">Name:</span> {fruit.itemname}</p>
+          <p><span className="h5 text-success">Name:</span> {fruit.itemname}</p>
           <p className="card-text">{fruit.description}</p>
           <p>
             {" "}
-            <span className="h5">Price:</span>
+            <span className="h5 text-success">Price:</span>
             {fruit.price}
           </p>
           <p>
             {" "}
-            <span className="h5">Quantity:</span> {fruit.quantity}
+            <span className="h5 text-success">Quantity:</span> {fruit.quantity}
           </p>
           <p>
-            <span className="h6">Suplier Name:</span> {fruit.name}
+            <span className="h6 text-success">Suplier Name:</span> {fruit.name}
           </p>
           <p>
-            <span className="h6">Sold:</span> {fruit.sold}
+            <span className="h6 text-success">Sold:</span> {fruit.sold}
           </p>
           <button
             onClick={deliveredFruit}
