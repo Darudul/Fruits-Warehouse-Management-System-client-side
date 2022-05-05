@@ -1,14 +1,20 @@
 import Button from "@restart/ui/esm/Button";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Form } from "react-bootstrap";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import { useLocation, useNavigate } from "react-router";
 import auth from "../../firebase.init";
 import Loading from "../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-  const [errorpass, setError] = useState("");
+  const emailRef = useRef("");
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -32,16 +38,27 @@ const Login = () => {
     const password = event.target.password.value;
     signInWithEmailAndPassword(email, password);
   };
+  const resetPassword = async () => {
+    const email = emailRef.current.value;
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast("reset password send your email address");
+    } else {
+      toast("please enter your email address");
+    }
+  };
   return (
     <div>
       <h3 className="text-center mt-5 text-warning">Please login</h3>
-      <Form onSubmit={hangdleLogin} className="w-25 mx-auto">
+      <Form onSubmit={hangdleLogin} className="w-50 mx-auto">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="text-success h5">Email address:</Form.Label>
           <Form.Control
+            ref={emailRef}
             name="email"
             type="email"
             placeholder="Enter your email"
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -50,13 +67,24 @@ const Login = () => {
             name="password"
             type="password"
             placeholder="Password"
+            required
           />
         </Form.Group>
         <p className="text-danger h6">{error?.message}</p>
         <button onClick={navigateToSignup} className="bg-white border-0 mb-3">
           If user is new?{" "}
-          <span className="text-warning ">Please signup first!!</span>
+          <span className="text-warning">Please signup first!!</span>
         </button>{" "}
+        <br />
+        <p>
+          Forget password?{" "}
+          <button
+            onClick={resetPassword}
+            className="bg-white text-primary border-0 mb-3"
+          >
+            Reset Password!!!
+          </button>
+        </p>{" "}
         <br />
         <Button
           className="bg-success text-white border-0 rounded-pill px-4 h6 py-2"
@@ -66,6 +94,7 @@ const Login = () => {
         </Button>
       </Form>
       <SocialLogin></SocialLogin>
+      <ToastContainer />
     </div>
   );
 };

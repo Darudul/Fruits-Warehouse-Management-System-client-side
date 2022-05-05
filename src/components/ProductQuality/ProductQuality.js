@@ -2,7 +2,7 @@ import React from "react";
 import "./ProductQuality.css";
 const ProductQuality = () => {
   return (
-    <div className="container quality-products">
+    <div className="containers container quality-products">
       <div className="text-center">
         <img
           src={"https://i.ibb.co/s94ttyD/2203-W-1.jpg"}
@@ -15,6 +15,7 @@ const ProductQuality = () => {
           labore exercitationem cumque corporis maiores.
         </p>
         <img
+          className="quality"
           src={"https://i.ibb.co/RQjVWQP/382715-PCGRW9-187.jpg"}
           width="80px"
           alt=""

@@ -8,6 +8,8 @@ import Footer from "./components/shared/Footer/Footer";
 import Login from "./socialmedia/Login/Login";
 import Signup from "./socialmedia/Signup/Signup";
 import RequireAuth from "./socialmedia/RequireAuth/RequireAuth";
+import MyItems from "./components/MyItems/MyItems";
+import AddNewItem from "./components/AddNewItem/AddNewItem";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
           path="/manage/:manageId"
           element={<ManageInventories></ManageInventories>}
         ></Route>
+        <Route path="/myItem" element={<MyItems></MyItems>}></Route>
+        <Route path="/addnewitem" element={<AddNewItem></AddNewItem>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
       </Routes>

@@ -13,7 +13,12 @@ const Header = () => {
   };
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" className="bg-light" variant="dark">
+      <Navbar
+        collapseOnSelect
+        expand="lg"
+        className="header mb-5 bg-success bg-opacity-25"
+        variant="dark"
+      >
         <Container>
           <Navbar.Brand className="text-dark h5" href="#home">
             <img src={"https://i.ibb.co/d4LT5cT/fruits-1.png"} alt="" />
@@ -28,7 +33,10 @@ const Header = () => {
                 About us
               </Nav.Link>
               <Nav.Link className="text-dark h5" as={Link} to="/manage">
-                Manage Inventories
+                ManageInventories
+              </Nav.Link>
+              <Nav.Link className="text-dark h5" as={Link} to="/myItem">
+                MyItem
               </Nav.Link>
               <Nav.Link className="text-dark h5" href="#pricing">
                 Contact us

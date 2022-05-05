@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 import auth from "../../firebase.init";
 import img from "../../images/google.png";
 import Loading from "../Loading/Loading";
+import "./SocialLogin.css";
 const SocialLogin = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,11 +26,11 @@ const SocialLogin = () => {
       <div>
         <p className="text-danger h6 text-center mb-4">{error?.message}</p>
         <button
-          className="border border-success bg-success p-2 text-dark bg-opacity-25 rounded-pill w-25 d-block mx-auto"
+          className="d-sm-flex align-items-center justify-content-evenly border border-success bg-success p-2 text-dark bg-opacity-25 rounded-pill w-25 d-block mx-auto"
           onClick={() => signInWithGoogle()}
         >
-          <img src={img} width="40px" alt="" />
-          <span className="ms-4">Google sign in</span>
+          <img src={img} width="50px" alt="" />
+          <span className="">Google sign in</span>
         </button>
       </div>
     </div>

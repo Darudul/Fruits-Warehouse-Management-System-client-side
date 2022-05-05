@@ -2,9 +2,16 @@ import React, { useEffect, useState } from "react";
 import useFruits from "../hooks/useFruits";
 import { useForm } from "react-hook-form";
 import "./ManageInventories.css";
+import { useNavigate } from "react-router";
+import { Table } from "react-bootstrap";
+import Button from "@restart/ui/esm/Button";
 
 const ManageInventories = () => {
   const [fruitss, setFruitss] = useFruits();
+  const navigate = useNavigate();
+  const addNewItem = () => {
+    navigate("/addnewitem");
+  };
   const deleteItem = (id) => {
     const success = window.confirm("Are u want o delete");
     if (success) {
@@ -20,120 +27,47 @@ const ManageInventories = () => {
         });
     }
   };
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data, event) => {
-    console.log(data);
-    const url = "http://localhost:5000/fruit";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        alert("item added");
-        console.log(result);
-        event.target.reset();
-      });
-  };
+
   return (
     <div>
-      <h1>This is manage inventory page</h1>
-      <div className="ms-5 set-table">
-        {fruitss.map((item) => (
-          <div key={item._id}>
-            <table className="zero" width="200px">
-              <thead height="140px">
-                <tr>
-                  <th colSpan="2">
-                    <img src={item.img} width="200px" height="150px" alt="" />
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="fw-bold">Name:</td>
-                  <td>{item.itemname}</td>
-                </tr>
-                <tr>
-                  <td colSpan="2">{item.description}</td>
-                </tr>
-                <tr>
-                  <td className="fw-bold">Price:</td>
-                  <td>{item.price}</td>
-                </tr>
-                <tr>
-                  <td className="fw-bold">Quantity:</td>
-                  <td>{item.quantity}</td>
-                </tr>
-                <tr>
-                  <td className="fw-bold">Suplier Name:</td>
-                  <td>{item.name}</td>
-                </tr>
-                <tr>
-                  <td className="fw-bold">Sold:</td>
-                  <td>{item.sold}</td>
-                </tr>
-              </tbody>
-            </table>
-            <button
-              className=" border-0 bg-warning p-2 rounded-pill text-success fw-bold px-4 ms-4"
-              onClick={() => deleteItem(item._id)}
-            >
-              Delete
-            </button>
-          </div>
-        ))}
-      </div>
-      <div className="" className="add-item-form">
-        <form className="display-table" onSubmit={handleSubmit(onSubmit)}>
-          <input
-            className="mb-1"
-            type="text"
-            placeholder="img"
-            {...register("img")}
-          />
-          <input
-            className="mb-1"
-            placeholder="itemname"
-            {...register("itemname")}
-          />
-          <textarea
-            className="mb-1"
-            placeholder="description"
-            {...register("description")}
-          />
-          <input
-            className="mb-1"
-            placeholder="price"
-            type="number"
-            {...register("price")}
-          />
-          <input
-            className="mb-1"
-            placeholder="quantity"
-            type="number"
-            {...register("quantity")}
-          />
-          <input
-            className="mb-1"
-            placeholder="suplier Name"
-            {...register("name")}
-          />
-          <input
-            className="mb-1"
-            placeholder="sold"
-            type="number"
-            {...register("sold")}
-          />
-          <input
-            className="mb-1 bg-secondary text-white border-0 p-2 rounded"
-            type="submit"
-            value="Add new Item"
-          />
-        </form>
+      <h1 className='text-center text-success mb-4 mt-4'>Manage inventory</h1>
+      <div className="ms-5">
+        <Table striped bordered hover size="sm">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Description</th>
+              <th>Suplier Name</th>
+              <th>Sold</th>
+            </tr>
+          </thead>
+          <tbody>
+            {fruitss.map((item) => (
+              <tr key={item._id}>
+                <td>{item.itemname}</td>
+                <td>{item.quantity}</td>
+                <td>{item.description}</td>
+                <td>{item.name}</td>
+                <td>{item.sold}</td>
+                <td>
+                  <Button
+                    className=" border-0 bg-warning p-2 rounded text-success fw-bold px-3 ms- "
+                    onClick={() => deleteItem(item._id)}
+                  >
+                    Delete
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        <button
+          onClick={addNewItem}
+          className="d-flex mx-auto border-0 bg-success p-2 rounded-pill text-warning fw-bold px-3 ms- "
+        >
+          Add New Item
+        </button>
       </div>
     </div>
   );

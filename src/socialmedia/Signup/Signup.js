@@ -31,6 +31,7 @@ const Signup = () => {
   if (user) {
     navigate("/home");
   }
+
   const hangdleSignup = (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -51,7 +52,7 @@ const Signup = () => {
   return (
     <div>
       <h3 className="text-center mt-5 text-warning">Please signup</h3>
-      <Form onSubmit={hangdleSignup} className="w-25 mx-auto">
+      <Form onSubmit={hangdleSignup} className="w-50 mx-auto">
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label className="text-success h5">Email address:</Form.Label>
           <Form.Control

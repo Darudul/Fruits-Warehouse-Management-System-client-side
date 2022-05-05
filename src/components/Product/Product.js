@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-
+import "./Product.css";
 const Product = ({ product }) => {
   const { _id, name } = product;
   const navigate = useNavigate();
@@ -8,11 +8,11 @@ const Product = ({ product }) => {
     navigate(`/inventory/${id}`);
   };
   return (
-    <div className="col-lg-4 mb-5 ">
+    <div className="col-lg-4 col-12 welcome mb-5 ">
       <div className="card border rounded">
         <img
           src={product.img}
-          className="card-img-top"
+          className="image-style card-img-top"
           alt="..."
           width="200px"
           height="200px"

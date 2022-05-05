@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Footer = () => {
   return (
     <div className=" mt-5">
-      <div className="background ">
+      <div className="background">
         <div className="footer-margin">
           <h4 className="text-white">Store Location</h4>
           <h6 className="text-white-50">Address:</h6>
@@ -20,7 +20,7 @@ const Footer = () => {
             Copyright 2022, Groxi Store. All Rights Reserved.
           </p>
         </div>
-        <div className="footer-margin">
+        <div className="margin">
           <h4 className="text-white">Useful Links</h4>
           <p className="text-white-50">About us</p>
           <p className="text-white-50">Blogs</p>
@@ -28,13 +28,13 @@ const Footer = () => {
           <p className="text-white-50">Contact</p>
           <p className="text-white-50">Manage Inventories</p>
         </div>
-        <div className="footer-margin">
+        <div className="category mt-4">
           <h4 className="text-white">Categories</h4>
           <p className="text-white-50">Fruits</p>
           <p className="text-white-50">Package Foods</p>
           <p className="text-white-50">Health and Wellness</p>
         </div>
-        <div className="footer-margin">
+        <div className="hours mt-4">
           <h4 className="text-white">Opening Hours</h4>
           <h6 className="text-white-50">Monday-Saturday</h6>
           <p className="text-white-50">1200-14.45</p>

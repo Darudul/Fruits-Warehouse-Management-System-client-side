@@ -5,7 +5,7 @@ const Supliers = () => {
     <div className="container mt-5 text-center mb-5">
       <h2 className="text-center mt-5 mb-3 text-success">Our Supliers</h2>
       <div className="supliers">
-        <div>
+        <div className="style">
           <img
             src={
               "https://i.ibb.co/N2sVnDL/close-up-photo-amicable-man-black-shirt-posing-his-passport-picture-removebg-preview.png"
@@ -21,7 +21,7 @@ const Supliers = () => {
             tempore!
           </p>
         </div>
-        <div>
+        <div className="style">
           <img
             src={
               "https://i.ibb.co/QFmrn3G/delivery-concept-portrait-happy-african-american-delivery-man-red-cloth-holding-box-package-isolated.png"
@@ -37,7 +37,7 @@ const Supliers = () => {
             tempore!
           </p>
         </div>
-        <div>
+        <div className="style">
           <img
             src={
               "https://i.ibb.co/v1k4d1x/picture-elegant-young-fashion-man-removebg-preview.png"
@@ -53,7 +53,7 @@ const Supliers = () => {
             tempore!
           </p>
         </div>
-        <div>
+        <div className="style"> 
           <img
             src={
               "https://i.ibb.co/D59r4SZ/want-some-cookie-picture-attractive-joyful-young-european-brunette-man-removebg-preview.png"
@@ -69,7 +69,7 @@ const Supliers = () => {
             tempore!
           </p>
         </div>
-        <div>
+        <div className="style">
           <img
             src={"https://i.ibb.co/fH8JWb5/myphoto-removebg-preview.png"}
             width="150px"
@@ -83,7 +83,7 @@ const Supliers = () => {
             tempore!
           </p>
         </div>
-        <div>
+        <div className="style">
           <img
             src={
               "https://i.ibb.co/pbnKZpH/people-travel-adventure-concept-attractive-young-bearded-adventurer-wearing-backpack-cap-taking-self.png"

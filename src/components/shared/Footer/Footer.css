@@ -4,17 +4,42 @@
   grid-template-columns: repeat(4, 1fr);
 }
 .footer-margin {
-  margin: 60px 0px;
-  margin-left: 50px;
+  margin: 20px;
+  margin-left: 200px;
+  margin-right: 00px;
 }
-.footer {
+.margin {
+  margin: 20px;
+  margin-left: 150px;
+}
+.margins {
+  margin: 20px;
   margin-left: 0;
-  margin-right: 0;
 }
-
-.copyright{
-  margin-top: 100px;
+.copyright {
+  margin-top: 10px;
 }
-.copyrigh{
-  margin-top: 170px;
+.copyrigh {
+  margin-top: 10px;
+}
+@media screen and (max-width: 576px) {
+  .background {
+    grid-template-columns: repeat(2, 1fr);
+    padding-top: 10px;
+  }
+  .margins {
+    margin: 0px 0px;
+  }
+  .margin {
+    margin: 40px 20px;
+  }
+  .footer-margin {
+    margin: 40px;
+  }
+  .category {
+    margin-left: 40px;
+  }
+  .hours {
+    margin-right: 10px;
+  }
 }

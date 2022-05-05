@@ -3,3 +3,12 @@
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap:60px;
 }
+@media screen and (max-width: 576px) {
+  .supliers{
+    grid-template-columns: repeat(1, 1fr);
+    grid-column-gap:10px;
+  }
+  .style{
+    margin-left: 20px;
+  }
+}

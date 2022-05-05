@@ -2,7 +2,7 @@ import React from "react";
 import "./SaveMoney.css";
 const SaveMoney = () => {
   return (
-    <div className="container mb-5 mt-5">
+    <div className="containers container mb-5 mt-5">
       <div className="free-shipping">
         <div className="d-flex bg-light pt-4 pb-4 ps-5">
           <div className="pe-5 text-center mt-5">
