@@ -1,68 +1,74 @@
+import axios from "axios";
 import React from "react";
-import { useForm } from "react-hook-form";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import Loading from "../../socialmedia/Loading/Loading";
 
 const AddNewItem = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data, event) => {
-    console.log(data);
-    const url = "http://localhost:5000/fruit";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        alert("item added");
-        console.log(result);
-        event.target.reset();
-      });
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <Loading></Loading>;
+  }
+  const addItem = async (event) => {
+    event.preventDefault();
+    const email = user.email;
+    const img = event.target.img.value;
+    const itemname = event.target.itemname.value;
+    const description = event.target.description.value;
+    const price = parseInt(event.target.price.value);
+    const quantity = parseInt(event.target.quantity.value);
+    const name = event.target.name.value;
+    const sold = parseInt(event.target.sold.value);
+    const addProduct = {
+      email,
+      img,
+      itemname,
+      description,
+      price,
+      quantity,
+      name,
+      sold,
+    };
+    // console.log(addProduct);
+    const url = `http://localhost:5000/fruit`;
+    const { data } = await axios.post(url, addProduct);
   };
   return (
     <div>
-      <div className="" className="add-item-form">
-        <form className="display-table" onSubmit={handleSubmit(onSubmit)}>
+      <div className="w-50 mx-auto">
+        <form className="display-table" onSubmit={addItem}>
+          <input className="mb-1" name="img" type="text" placeholder="img" />
           <input
             className="mb-1"
+            name="itemname"
             type="text"
-            placeholder="img"
-            {...register("img")}
-          />
-          <input
-            className="mb-1"
             placeholder="itemname"
-            {...register("itemname")}
           />
           <textarea
             className="mb-1"
+            name="description"
             placeholder="description"
-            {...register("description")}
           />
           <input
             className="mb-1"
+            name="price"
             placeholder="price"
             type="number"
-            {...register("price")}
           />
           <input
             className="mb-1"
+            name="quantity"
             placeholder="quantity"
             type="number"
-            {...register("quantity")}
           />
+          <input className="mb-1" name="name" placeholder="suplier Name" />
           <input
             className="mb-1"
-            placeholder="suplier Name"
-            {...register("name")}
-          />
-          <input
-            className="mb-1"
+            name="sold"
             placeholder="sold"
             type="number"
-            {...register("sold")}
           />
+
           <input
             className="mb-1 bg-secondary text-white border-0 p-2 rounded"
             type="submit"

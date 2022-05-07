@@ -1,8 +1,19 @@
 import React from "react";
 import "./Footer.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  FaFacebookF,
+  FaInstagramSquare,
+  FaWhatsapp,
+  FaLongArrowAltRight,
+} from "react-icons/fa";
+import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+  const follow = () => {
+    navigate("");
+  };
   return (
     <div className=" mt-5">
       <div className="background">
@@ -16,9 +27,6 @@ const Footer = () => {
           <p className="text-white-50">darudulislam@gmail.com</p>
           <h6 className="text-white-50">Phone:</h6>
           <p className="text-white-50">+603-22960416</p>
-          <p className="copyright text-white-50">
-            Copyright 2022, Groxi Store. All Rights Reserved.
-          </p>
         </div>
         <div className="margin">
           <h4 className="text-white">Useful Links</h4>
@@ -40,8 +48,22 @@ const Footer = () => {
           <p className="text-white-50">1200-14.45</p>
           <h6 className="text-white-50">Sunday</h6>
           <p className="text-white-50">15.00</p>
-          <p className="copyrigh text-white-50">Follow Us:</p>
+          <p className="copyrigh text-white-50">
+            Follow Us:{" "}
+            <span>
+              <FaFacebookF />
+            </span>
+            <span className="ms-2">
+              <FaInstagramSquare />
+            </span>
+            <span className="ms-2">
+              <FaWhatsapp />
+            </span>
+          </p>
         </div>
+        <p className="copyright text-white-50 ms-1">
+          Copyright 2022, Groxi Store. All Rights Reserved.
+        </p>
       </div>
     </div>
   );

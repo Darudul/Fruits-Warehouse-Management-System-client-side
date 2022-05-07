@@ -10,6 +10,11 @@ import Signup from "./socialmedia/Signup/Signup";
 import RequireAuth from "./socialmedia/RequireAuth/RequireAuth";
 import MyItems from "./components/MyItems/MyItems";
 import AddNewItem from "./components/AddNewItem/AddNewItem";
+import ManageItem from "./ManageItem/ManageItem";
+import About from "./components/About/About";
+import Contactus from "./components/Contactus/Contactus";
+import Blogs from "./components/Blogs/Blogs";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -30,17 +35,48 @@ function App() {
         ></Route>
         <Route
           path="/manage"
+          element={
+            <RequireAuth>
+              <ManageInventories></ManageInventories>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route
+          path="/manage/:inventoryId"
           element={<ManageInventories></ManageInventories>}
         ></Route>
         <Route
-          path="/manage/:manageId"
-          element={<ManageInventories></ManageInventories>}
+          path="/manageitem"
+          element={
+            <RequireAuth>
+              <ManageItem></ManageItem>
+            </RequireAuth>
+          }
         ></Route>
-        <Route path="/myItem" element={<MyItems></MyItems>}></Route>
-        <Route path="/addnewitem" element={<AddNewItem></AddNewItem>}></Route>
+        <Route
+          path="/myitem"
+          element={
+            <RequireAuth>
+              <MyItems></MyItems>
+            </RequireAuth>
+          }
+        ></Route>
+        <Route path="/blogs" element={<Blogs></Blogs>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/contact" element={<Contactus></Contactus>}></Route>
+        <Route
+          path="/addnewitem"
+          element={
+            <RequireAuth>
+              <AddNewItem></AddNewItem>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/signup" element={<Signup></Signup>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
+
       <Footer></Footer>
     </div>
   );

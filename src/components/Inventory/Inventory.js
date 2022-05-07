@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./Inventory.css";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Inventory = () => {
   const { inventoryId } = useParams();
@@ -72,7 +73,9 @@ const Inventory = () => {
         </div>
 
         <div>
-          <p><span className="h5 text-success">Name:</span> {fruit.itemname}</p>
+          <p>
+            <span className="h5 text-success">Name:</span> {fruit.itemname}
+          </p>
           <p className="card-text">{fruit.description}</p>
           <p>
             {" "}
@@ -99,6 +102,7 @@ const Inventory = () => {
       </div>
       <div>
         <>
+          <h4 className="ms-5 mb-0 text-muted">Update quantity</h4>
           <form
             className="ms-4 w-25 mt-5 style-form"
             onSubmit={handleUpdateUser}
@@ -107,11 +111,15 @@ const Inventory = () => {
               className="w-50 border border-secondary rounded"
               type="text"
               name="items"
-              placeholder="Name"
+              placeholder="quantity"
               required
             />
             <br />
-            <input className="w-50 border-0 bg-secondary text-white p-2 rounded" type="submit" value="Update User" />
+            <input
+              className="w-50 border-0 bg-secondary text-white p-2 rounded"
+              type="submit"
+              value="Restock Items"
+            />
           </form>
         </>
       </div>
@@ -120,6 +128,9 @@ const Inventory = () => {
         className="mt-5 ms-5 border-0 bg-success p-2 rounded-pill text-white px-3 fw-bold position-absolute bottom-0 end-0 me-4"
       >
         Manage Inventories
+        <span className="ms-2">
+          <FaLongArrowAltRight />
+        </span>
       </button>
     </div>
   );

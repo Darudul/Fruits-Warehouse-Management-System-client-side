@@ -4,8 +4,9 @@ import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../../../firebase.init";
-import Home from "../../Home/Home";
-
+import CustomActiveLink from "../../CustomActiveLink/CustomActiveLink";
+import { Outlet } from "react-router-dom";
+import "./Header.css";
 const Header = () => {
   const [user, loading, error] = useAuthState(auth);
   const logout = () => {
@@ -14,32 +15,69 @@ const Header = () => {
   return (
     <>
       <Navbar
+        sticky="top"
         collapseOnSelect
         expand="lg"
-        className="header mb-5 bg-success bg-opacity-25"
+        className="header bg-success bg-opacity-25"
         variant="dark"
       >
         <Container>
-          <Navbar.Brand className="text-dark h5" href="#home">
+          <Navbar.Brand className="" href="#home">
             <img src={"https://i.ibb.co/d4LT5cT/fruits-1.png"} alt="" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              <Nav.Link as={Link} to="/" className="text-dark h5 ms-5">
+              <Nav.Link
+                as={CustomActiveLink}
+                to="/"
+                className=" h6 ms-5"
+              >
                 Home
               </Nav.Link>
-              <Nav.Link className="text-dark h5" eventKey={2} href="#memes">
-                About us
-              </Nav.Link>
-              <Nav.Link className="text-dark h5" as={Link} to="/manage">
+              <Nav.Link
+                className=" h6"
+                as={CustomActiveLink}
+                to="/manage"
+              >
                 ManageInventories
               </Nav.Link>
-              <Nav.Link className="text-dark h5" as={Link} to="/myItem">
+              <Nav.Link
+                className="h6"
+                as={CustomActiveLink}
+                to="/manageitem"
+              >
+                ManageItem
+              </Nav.Link>
+              <Nav.Link
+                className="h6"
+                as={CustomActiveLink}
+                to="/myItem"
+              >
                 MyItem
               </Nav.Link>
-              <Nav.Link className="text-dark h5" href="#pricing">
-                Contact us
+              <Nav.Link
+                className="h6"
+                eventKey={2}
+                as={CustomActiveLink}
+                to="/blogs"
+              >
+                Blogs
+              </Nav.Link>
+              <Nav.Link
+                className="h6"
+                eventKey={2}
+                as={CustomActiveLink}
+                to="/about"
+              >
+                AboutUs
+              </Nav.Link>
+              <Nav.Link
+                className="h6"
+                as={CustomActiveLink}
+                to="contact"
+              >
+                ContactUs
               </Nav.Link>
             </Nav>
             <Nav>
@@ -52,7 +90,7 @@ const Header = () => {
                 </button>
               ) : (
                 <Nav.Link
-                  className="text-dark h5"
+                  className="text-success h5"
                   eventKey={2}
                   as={Link}
                   to="/login"
@@ -64,6 +102,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <Outlet />
     </>
   );
 };

@@ -30,7 +30,7 @@ const ManageInventories = () => {
 
   return (
     <div>
-      <h1 className='text-center text-success mb-4 mt-4'>Manage inventory</h1>
+      <h4 className="text-center text-success mb-4 mt-4">Manage inventories</h4>
       <div className="ms-5">
         <Table striped bordered hover size="sm">
           <thead>
@@ -52,7 +52,7 @@ const ManageInventories = () => {
                 <td>{item.sold}</td>
                 <td>
                   <Button
-                    className=" border-0 bg-warning p-2 rounded text-success fw-bold px-3 ms- "
+                    className=" border-0 bg-warning rounded text-success fw-bold px-3 ms- "
                     onClick={() => deleteItem(item._id)}
                   >
                     Delete
@@ -64,7 +64,7 @@ const ManageInventories = () => {
         </Table>
         <button
           onClick={addNewItem}
-          className="d-flex mx-auto border-0 bg-success p-2 rounded-pill text-warning fw-bold px-3 ms- "
+          className="d-flex mx-auto border-0 bg-success p-2 rounded-pill text-warning fw-bold px-3"
         >
           Add New Item
         </button>
