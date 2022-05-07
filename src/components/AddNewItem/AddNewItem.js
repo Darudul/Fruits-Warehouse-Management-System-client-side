@@ -6,6 +6,7 @@ import Loading from "../../socialmedia/Loading/Loading";
 
 const AddNewItem = () => {
   const [user, loading] = useAuthState(auth);
+
   if (loading) {
     return <Loading></Loading>;
   }
@@ -30,7 +31,7 @@ const AddNewItem = () => {
       sold,
     };
     // console.log(addProduct);
-    const url = `http://localhost:5000/fruit`;
+    const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit`;
     const { data } = await axios.post(url, addProduct);
   };
   return (

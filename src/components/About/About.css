@@ -1,11 +1,15 @@
-.blogs {
+.warehouse {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 30px;
 }
-
 @media screen and (max-width: 576px) {
-  .blogs {
+  .warehouse {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .container img{
+    width: 100%;
+  }
+  .goal{
+    width: 100%;
   }
 }

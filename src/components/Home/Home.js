@@ -8,12 +8,19 @@ import SaveMoney from "../SaveMoney/SaveMoney";
 import Supliers from "../Supliers/Supliers";
 import "./Home.css";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const Home = () => {
+  const [user, loading] = useAuthState(auth);
+  
   const navigate = useNavigate();
   const ManageInventory = () => {
     navigate("/manage");
   };
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div>
       <Banner></Banner>

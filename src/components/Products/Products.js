@@ -5,7 +5,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const sliceProducts = products.slice(0, 6);
   useEffect(() => {
-    fetch("http://localhost:5000/fruit")
+    fetch("https://mysterious-wildwood-76982.herokuapp.com/fruit")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

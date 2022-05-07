@@ -17,7 +17,7 @@ const MyItems = () => {
   useEffect(() => {
     const loadItem = async () => {
       const email = user?.email;
-      const url = `http://localhost:5000/myItem?email=${email}`;
+      const url = `https://mysterious-wildwood-76982.herokuapp.com/myItem?email=${email}`;
       const { data } = await axios.get(url);
       setMyItem(data);
     };
@@ -32,7 +32,7 @@ const MyItems = () => {
   const deleteItem = (id) => {
     const success = window.confirm("Are you sure?? You want to delete item");
     if (success) {
-      const url = `http://localhost:5000/fruit/${id}`;
+      const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${id}`;
       fetch(url, {
         method: "DELETE",
       })

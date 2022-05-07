@@ -15,7 +15,7 @@ const ManageInventories = () => {
   const deleteItem = (id) => {
     const success = window.confirm("Are u want o delete");
     if (success) {
-      const url = `http://localhost:5000/fruit/${id}`;
+      const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${id}`;
       fetch(url, {
         method: "DELETE",
       })

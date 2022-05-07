@@ -12,7 +12,7 @@ const ManageItem = () => {
   const deleteItem = (id) => {
     const success = window.confirm("Are u want o delete");
     if (success) {
-      const url = `http://localhost:5000/fruit/${id}`;
+      const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -38,16 +38,19 @@ const ManageItem = () => {
               <div className="card-body">
                 <p className="card-text">{item.description}</p>
                 <p>
-                  <span className="text-danger fw-bold">Price:</span> {item.price}
+                  <span className="text-danger fw-bold">Price:</span>{" "}
+                  {item.price}
                 </p>
                 <p>
-                  <span className="text-danger fw-bold">Quantity:</span> {item.quantity}
+                  <span className="text-danger fw-bold">Quantity:</span>{" "}
+                  {item.quantity}
                 </p>
                 <p>
                   <span className="text-danger fw-bold">Sold:</span> {item.sold}
                 </p>
                 <p>
-                  <span className="text-danger fw-bold">Suplier Name:</span> {item.name}
+                  <span className="text-danger fw-bold">Suplier Name:</span>{" "}
+                  {item.name}
                 </p>
               </div>
             </div>

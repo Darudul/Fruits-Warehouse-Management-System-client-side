@@ -15,7 +15,7 @@ const Supliers = () => {
             alt=""
             className="mb-3 border rounded-circle"
           />
-          <h5 className="text-danger">Company Name: Bloor Fruit Market</h5>
+          <h5 className="text-danger">Name: Towhidul Islam</h5>
           <p>
             <span className="text-danger">Address: </span>47 Washington Square
             W, New York, NY 10011, USA
@@ -34,7 +34,7 @@ const Supliers = () => {
             alt=""
             className="mb-3 border rounded-circle"
           />
-          <h5 className="text-danger">Company Name: By the Handful</h5>
+          <h5 className="text-danger">Name: Kalam Mia</h5>
           <p>
             <span className="text-danger">Address: </span>47 W 13th St, New
             York, NY 10011, USA
@@ -54,7 +54,7 @@ const Supliers = () => {
             alt=""
             className="mb-3 border rounded-circle"
           />
-          <h5 className="text-danger">Company Name: Farmer's Fruits</h5>
+          <h5 className="text-danger">Name: Sahadat Hossain</h5>
           <p>
             <span className="text-danger">Address: </span>50 Washington Square
             S, New York, NY 10012, USA
@@ -76,7 +76,7 @@ const Supliers = () => {
             className="mb-3 border rounded-circle"
           />
           <h5 className="text-danger">
-            Company Name: End of the Line Fruit Stand
+            Name: Abul Hossen
           </h5>
           <p>
             <span className="text-danger">Address: </span>80 Washington Square
@@ -97,7 +97,7 @@ const Supliers = () => {
             alt=""
             className="mb-3 border rounded-circle"
           />
-          <h5 className="text-danger">Company Name: Berry Go Market</h5>
+          <h5 className="text-danger">Name: Darudul Islam</h5>
           <p>
             <span className="text-danger">Address: </span>East 8th Street, New
             York, NY 10003, United States
@@ -118,7 +118,7 @@ const Supliers = () => {
             alt=""
             className="mb-3 border rounded-circle"
           />
-          <h5 className="text-danger">Company Name: Berry Farm</h5>
+          <h5 className="text-danger">Name: Hossen Shaikder</h5>
           <p>
             <span className="text-danger">Address: </span> 55 Clark St,
             Brooklyn, NY 11201, USA

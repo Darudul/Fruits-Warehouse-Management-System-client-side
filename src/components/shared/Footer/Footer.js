@@ -30,11 +30,19 @@ const Footer = () => {
         </div>
         <div className="margin">
           <h4 className="text-white">Useful Links</h4>
-          <p className="text-white-50">About us</p>
-          <p className="text-white-50">Blogs</p>
-          <p className="text-white-50">Check out</p>
-          <p className="text-white-50">Contact</p>
-          <p className="text-white-50">Manage Inventories</p>
+          <Link to="blogs" className="text-white-50 text-decoration-none">
+            Blogs
+          </Link>
+          <br />
+          <br />
+          <Link to="aboutus" className="text-white-50 text-decoration-none ">
+            About us
+          </Link>
+          <br />
+          <br />
+          <Link to="contactuss" className="text-white-50 text-decoration-none">
+            Contact
+          </Link>
         </div>
         <div className="category mt-4">
           <h4 className="text-white">Categories</h4>

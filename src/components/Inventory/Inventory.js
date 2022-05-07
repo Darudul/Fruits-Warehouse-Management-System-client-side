@@ -12,7 +12,7 @@ const Inventory = () => {
   };
 
   useEffect(() => {
-    const url = `http://localhost:5000/fruit/${inventoryId}`;
+    const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${inventoryId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setFruit(data));
@@ -23,9 +23,9 @@ const Inventory = () => {
     const newQuantity = parseInt(fruit?.quantity) - 1;
     const quantityy = { newQuantity };
     if (newQuantity < 0) {
-      alert("quantity can not be negative");
+      alert("sold out no more stock");
     } else {
-      const url = `http://localhost:5000/fruit/${inventoryId}`;
+      const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${inventoryId}`;
       console.log(url);
       fetch(url, {
         method: "PUT",
@@ -49,7 +49,7 @@ const Inventory = () => {
     if (newQuantity < 0) {
       alert("quantity can not be negative");
     } else {
-      const url = `http://localhost:5000/fruit/${inventoryId}`;
+      const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${inventoryId}`;
       console.log(url);
       fetch(url, {
         method: "PUT",
