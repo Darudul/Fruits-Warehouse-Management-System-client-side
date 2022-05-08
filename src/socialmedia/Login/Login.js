@@ -49,7 +49,7 @@ const Login = () => {
       await sendPasswordResetEmail(email);
       toast("reset password send your email address");
     } else {
-      toast("please enter your email address");
+      toast("please enter email address");
     }
   };
   return (
