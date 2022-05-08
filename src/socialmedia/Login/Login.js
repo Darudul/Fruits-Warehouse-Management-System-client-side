@@ -1,5 +1,5 @@
 import Button from "@restart/ui/esm/Button";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
 import {
   useSendPasswordResetEmail,
@@ -11,6 +11,7 @@ import Loading from "../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const Login = () => {
   const emailRef = useRef("");
@@ -24,19 +25,24 @@ const Login = () => {
   };
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+  // console.log(user);
+  // console.log(user?.user?.email);
   if (loading) {
     return <Loading></Loading>;
   }
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
+  // if (user) {
 
-  const hangdleLogin = (event) => {
+  // }
+
+  const hangdleLogin = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate(from, { replace: true });
   };
   const resetPassword = async () => {
     const email = emailRef.current.value;

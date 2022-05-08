@@ -1,4 +1,3 @@
-import Button from "@restart/ui/esm/Button";
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
@@ -11,6 +10,7 @@ import SocialLogin from "../SocialLogin/SocialLogin";
 import { Link } from "react-router-dom";
 import { signOut } from "@firebase/auth";
 import Loading from "../Loading/Loading";
+import axios from "axios";
 
 const Signup = () => {
   const [errorPassword, setErrorPassword] = useState("");
@@ -32,7 +32,7 @@ const Signup = () => {
     navigate("/home");
   }
 
-  const hangdleSignup = (event) => {
+  const hangdleSignup = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
@@ -46,7 +46,10 @@ const Signup = () => {
       setErrorPassword("password must be 6 character or more");
       return;
     }
-    createUserWithEmailAndPassword(email, password);
+    await createUserWithEmailAndPassword(email, password);
+    const { data } = await axios.post("http://localhost:5000/login", { email });
+    localStorage.setItem("accessToken", data.accessToken);
+    navigate("/home");
   };
 
   return (

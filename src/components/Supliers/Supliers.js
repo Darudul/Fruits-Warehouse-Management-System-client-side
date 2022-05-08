@@ -2,7 +2,7 @@ import React from "react";
 import "./Supliers.css";
 const Supliers = () => {
   return (
-    <div className="container mt-5 text-center mb-5">
+    <div className="mt-5 text-center mb-5">
       <h2 className="text-center mt-5 mb-3 text-success">Our Supliers</h2>
       <div className="supliers">
         <div className="style">
@@ -75,9 +75,7 @@ const Supliers = () => {
             alt=""
             className="mb-3 border rounded-circle"
           />
-          <h5 className="text-danger">
-            Name: Abul Hossen
-          </h5>
+          <h5 className="text-danger">Name: Abul Hossen</h5>
           <p>
             <span className="text-danger">Address: </span>80 Washington Square
             E, New York, NY 10003, USA

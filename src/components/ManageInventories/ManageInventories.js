@@ -13,7 +13,7 @@ const ManageInventories = () => {
     navigate("/addnewitem");
   };
   const deleteItem = (id) => {
-    const success = window.confirm("Are u want o delete");
+    const success = window.confirm("Are you sure you want to delete this item");
     if (success) {
       const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${id}`;
       fetch(url, {

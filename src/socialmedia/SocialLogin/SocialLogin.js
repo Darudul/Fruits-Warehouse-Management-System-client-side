@@ -10,12 +10,15 @@ const SocialLogin = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  // console.log(user);
+  // console.log(user?.user?.email);
   if (user) {
     navigate(from, { replace: true });
   }
   if (loading) {
     return <Loading></Loading>;
   }
+
   return (
     <div>
       <div className="d-flex align-items-center container">

@@ -1,5 +1,5 @@
 # Fruits Warehouse Management System
-
+### This website is about warehouse management system. User can manage my Items.
 ## Live website link:
 
 click here: https://fruits-warehouse-website.web.app/

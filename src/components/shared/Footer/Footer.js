@@ -35,12 +35,12 @@ const Footer = () => {
           </Link>
           <br />
           <br />
-          <Link to="aboutus" className="text-white-50 text-decoration-none ">
+          <Link to="about" className="text-white-50 text-decoration-none ">
             About us
           </Link>
           <br />
           <br />
-          <Link to="contactuss" className="text-white-50 text-decoration-none">
+          <Link to="contact" className="text-white-50 text-decoration-none">
             Contact
           </Link>
         </div>
@@ -59,13 +59,31 @@ const Footer = () => {
           <p className="copyrigh text-white-50">
             Follow Us:{" "}
             <span>
-              <FaFacebookF />
+              <a
+                className="none"
+                target="_blank"
+                href="https://www.facebook.com/"
+              >
+                <FaFacebookF />
+              </a>
             </span>
             <span className="ms-2">
-              <FaInstagramSquare />
+              <a
+                className="none"
+                target="_blank"
+                href="https://www.instagram.com/"
+              >
+                <FaInstagramSquare />
+              </a>
             </span>
             <span className="ms-2">
-              <FaWhatsapp />
+              <a
+                className="none"
+                target="_blank"
+                href="https://wa.me/qr/67ZYG5WQ5JXWH1"
+              >
+                <FaWhatsapp />
+              </a>
             </span>
           </p>
         </div>

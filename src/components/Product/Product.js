@@ -8,8 +8,8 @@ const Product = ({ product }) => {
     navigate(`/inventory/${id}`);
   };
   return (
-    <div className="col-lg-4 col-12 welcome mb-5 ">
-      <div className="card border-0 rounded bg-white shadow">
+    <div className="col-lg-4 col-12 welcome">
+      <div className="mb-3 card border-0 rounded bg-white shadow">
         <img
           src={product.img}
           className="image-style card-img-top"

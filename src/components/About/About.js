@@ -23,10 +23,10 @@ const About = () => {
           />
         </div>
         <div className="mt-5">
-          <h2 className="mt-5 mb-4 text-success">
+          <h3 className="mt-5 mb-4 text-success">
             We Give The Lowest <br />
             Price on Warehouse Items
-          </h2>
+          </h3>
           <p>
             Enjoy exciting offers at up to 80% off, daily deals & wide
             assortments. Discover the Best Deals & Exclusive Offers on Your

@@ -1,12 +1,16 @@
 import axios from "axios";
 import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router";
 import auth from "../../firebase.init";
 import Loading from "../../socialmedia/Loading/Loading";
 
 const AddNewItem = () => {
   const [user, loading] = useAuthState(auth);
-
+  const navigate = useNavigate();
+  const clickHome = () => {
+    navigate("/home");
+  };
   if (loading) {
     return <Loading></Loading>;
   }
@@ -76,6 +80,14 @@ const AddNewItem = () => {
             value="Add new Item"
           />
         </form>
+        <div className="d-flex justify-content-around">
+          <button
+            onClick={clickHome}
+            className="mb-2 border-0 bg-success p-2 rounded-pill text-white px-3 fw-bold"
+          >
+            Return Back Home
+          </button>
+        </div>
       </div>
     </div>
   );

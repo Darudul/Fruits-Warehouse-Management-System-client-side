@@ -1,5 +1,7 @@
 import React from "react";
 import "./Contactus.css";
+import { FaLocationArrow, FaPhoneVolume, FaVoicemail } from "react-icons/fa";
+
 const Contactus = () => {
   return (
     <div className="bottom-margin">
@@ -43,16 +45,31 @@ const Contactus = () => {
             </button>
           </div>
           <div className="bg-success bg-opacity-50 container rounded ps-4">
-            <h2 className="mt-3">Reach Us</h2>
-            <h5>Location</h5>
-            <p>50 Washington Square S, New York, NY 10012, USA</p>
-            <p>80 Washington Square E, New York, NY 10003, USA</p>
-            <h5>Phone</h5>
-            <p>0-444-6785-6785</p>
-            <p>0-754-6795-6365</p>
-            <h5>Email</h5>
-            <p>darudulislam@gmail.com</p>
-            <p>info@groxistore.com</p>
+            <h2 className="mt-3 mb-3 ms-4">Reach Us</h2>
+            <div className="d-flex align-items-center">
+              <FaLocationArrow />
+              <div className="ms-4">
+                <h5>Location</h5>
+                <p>50 Washington Square S, New York, NY 10012, USA</p>
+                <p>80 Washington Square E, New York, NY 10003, USA</p>
+              </div>
+            </div>
+            <div className="d-flex align-items-center">
+              <FaPhoneVolume />
+              <div className="ms-4">
+                <h5>Phone</h5>
+                <p>0-444-6785-6785</p>
+                <p>0-754-6795-6365</p>
+              </div>
+            </div>
+            <div className="d-flex align-items-center">
+              <FaVoicemail></FaVoicemail>
+              <div className="ms-4">
+                <h5>Email</h5>
+                <p>darudulislam@gmail.com</p>
+                <p>info@groxistore.com</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

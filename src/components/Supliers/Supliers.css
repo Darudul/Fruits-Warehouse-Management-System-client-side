@@ -1,7 +1,9 @@
 .supliers {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap:60px;
+  grid-column-gap:30px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 @media screen and (max-width: 576px) {
   .supliers{
@@ -10,5 +12,9 @@
   }
   .style{
     margin-left: 20px;
+  }
+  .style img{
+    width: 100px;
+    height: 100px;
   }
 }

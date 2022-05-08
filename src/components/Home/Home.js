@@ -13,7 +13,7 @@ import auth from "../../firebase.init";
 
 const Home = () => {
   const [user, loading] = useAuthState(auth);
-  
+
   const navigate = useNavigate();
   const ManageInventory = () => {
     navigate("/manage");
@@ -25,13 +25,10 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <Products></Products>
-      <SaveMoney></SaveMoney>
-      <ProductQuality></ProductQuality>
-      <Supliers></Supliers>
-      <div className="style-home position-relative">
+      <div className="style-home d-flex justify-content-end">
         <button
           onClick={ManageInventory}
-          className="mb-2 position-absolute bottom-0 end-0 border-0 bg-success p-2 rounded-pill text-white px-3 fw-bold"
+          className="set-button border-0 bg-success p-2 rounded-pill text-white px-3 fw-bold"
         >
           Manage Inventories
           <span className="ms-2">
@@ -39,6 +36,9 @@ const Home = () => {
           </span>
         </button>
       </div>
+      <SaveMoney></SaveMoney>
+      <ProductQuality></ProductQuality>
+      <Supliers></Supliers>
     </div>
   );
 };

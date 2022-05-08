@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./Inventory.css";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Loading from "../../socialmedia/Loading/Loading";
+import auth from "../../firebase.init";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Inventory = () => {
   const { inventoryId } = useParams();
@@ -10,14 +13,16 @@ const Inventory = () => {
   const ManageInventory = () => {
     navigate("/manage");
   };
-
   useEffect(() => {
     const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit/${inventoryId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setFruit(data));
   }, [fruit]);
-
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return <Loading></Loading>;
+  }
   const deliveredFruit = () => {
     // let quant=1
     const newQuantity = parseInt(fruit?.quantity) - 1;
@@ -66,13 +71,16 @@ const Inventory = () => {
     }
   };
   return (
-    <div className="position-relative">
+    <div className="position-relative mt-5">
       <div className="mb-5 container inventory-item">
         <div>
           <img className="" width="400px" src={fruit.img} alt="" />
         </div>
 
         <div>
+          <h5 className="card-title">
+            <span className="text-success">ID:</span> {fruit._id}
+          </h5>
           <p>
             <span className="h5 text-success">Name:</span> {fruit.itemname}
           </p>
