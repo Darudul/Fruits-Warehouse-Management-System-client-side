@@ -37,6 +37,7 @@ const AddNewItem = () => {
     // console.log(addProduct);
     const url = `https://mysterious-wildwood-76982.herokuapp.com/fruit`;
     const { data } = await axios.post(url, addProduct);
+    event.target.reset()
   };
   return (
     <div>
