@@ -31,16 +31,15 @@ const Login = () => {
     return <Loading></Loading>;
   }
 
-  // if (user) {
-
-  // }
-
   const hangdleLogin = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
     await signInWithEmailAndPassword(email, password);
-    const { data } = await axios.post("http://localhost:5000/login", { email });
+    const { data } = await axios.post(
+      "https://mysterious-wildwood-76982.herokuapp.com/login",
+      { email }
+    );
     localStorage.setItem("accessToken", data.accessToken);
     navigate(from, { replace: true });
   };
